@@ -25,12 +25,14 @@ public class BancoRMIClientMain {
                     System.out.println("==================================");
                     System.out.print("Escolha uma opção: " + Cor.AMARELO.getCodigoANSI());
                     int opcao = scanner.nextInt();
+                    scanner.nextLine();
                     System.out.println(Cor.reset());
                     switch (opcao) {
                         case 1:
                             System.out.print(Cor.AZUL.getCodigoANSI());
-                            System.out.print("Digite o número da conta: "+ Cor.AMARELO.getCodigoANSI());
+                            System.out.print("Digite o número da conta: " + Cor.AMARELO.getCodigoANSI());
                             int numeroConta = scanner.nextInt();
+                            scanner.nextLine();
                             System.out.print(Cor.AZUL.getCodigoANSI());
                             System.out.print("Digite o nome do titular: " + Cor.AMARELO.getCodigoANSI());
                             String nomeTitular = scanner.next();
@@ -44,6 +46,7 @@ public class BancoRMIClientMain {
                             System.out.print(Cor.AZUL.getCodigoANSI());
                             System.out.print("Digite o número da conta: " + Cor.AMARELO.getCodigoANSI());
                             numeroContaAcesso = scanner.nextInt();
+                            scanner.nextLine();
                             if (banco.acesso(numeroContaAcesso)) {
                                 System.out.print(Cor.VERDE.getCodigoANSI());
                                 System.out.println("Acesso realizado com sucesso.");
@@ -76,6 +79,7 @@ public class BancoRMIClientMain {
                     System.out.println("==================================");
                     System.out.print("Escolha uma opção: " + Cor.AMARELO.getCodigoANSI());
                     int escolha = scanner.nextInt();
+                    scanner.nextLine();
                     System.out.print(Cor.reset());
 
                     switch (escolha) {
@@ -88,6 +92,7 @@ public class BancoRMIClientMain {
                             System.out.print(Cor.AZUL.getCodigoANSI());
                             System.out.print("Digite o valor a depositar: " + Cor.AMARELO.getCodigoANSI());
                             double valorDeposito = scanner.nextDouble();
+                            scanner.nextLine();
                             System.out.print(Cor.reset());
                             System.out.println(banco.depositar(numeroContaAcesso, valorDeposito));
                             clearScreen();
@@ -96,6 +101,7 @@ public class BancoRMIClientMain {
                             System.out.print(Cor.AZUL.getCodigoANSI());
                             System.out.print("Digite o valor a sacar: " + Cor.AMARELO.getCodigoANSI());
                             double valorSaque = scanner.nextDouble();
+                            scanner.nextLine();
                             System.out.print(Cor.reset());
                             System.out.println(banco.sacar(numeroContaAcesso, valorSaque));
                             clearScreen();
@@ -104,9 +110,11 @@ public class BancoRMIClientMain {
                             System.out.print(Cor.AZUL.getCodigoANSI());
                             System.out.print("Digite o número da conta de destino: " + Cor.AMARELO.getCodigoANSI());
                             int contaDestino = scanner.nextInt();
+                            scanner.nextLine();
                             System.out.print(Cor.AZUL.getCodigoANSI());
                             System.out.print("Digite o valor a transferir: " + Cor.AMARELO.getCodigoANSI());
                             double valorTransferencia = scanner.nextDouble();
+                            scanner.nextLine();
                             System.out.print(Cor.reset());
                             System.out.println(banco.transferir(numeroContaAcesso, contaDestino, valorTransferencia));
                             clearScreen();
@@ -139,6 +147,6 @@ public class BancoRMIClientMain {
         }
         System.out.flush();
         System.out.println(Cor.reset());
-        System.out.print("\033[H\033[2J");
+        System.out.print("\033[H\033[2J"); //
     }
 }
